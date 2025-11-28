@@ -1,0 +1,12 @@
+module Ram(input addr[2:0], input data_in[3:0], input clk, input write_enable, output data_out[3:0]);
+
+logic[3:0] mem[0:7]; //8 komorek po 4 bity
+always@(posedge clk) begin
+    if (write_enable == 0) begin
+        data_out = mem[addr];
+    end else begin
+        mem[addr] <= data_in;
+    end
+end
+
+endmodule

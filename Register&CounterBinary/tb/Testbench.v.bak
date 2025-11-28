@@ -1,0 +1,26 @@
+module testbench;
+
+//counter binary
+wire[3:0] counter;
+reg clkCount;
+reg reset;
+//register
+reg[7:0] D;
+reg[7:0] Q;
+reg clkReg;
+reg reset;
+
+always #10 clkReg = ~clkReg;
+always #30 clkCount = ~clkCount;
+
+
+CounterBinary testCount(.counter(counter), .clkCount(clk), .reset(reset));
+
+Register testReg(.D(D),.Q(Q),.clkReg(clk),.reset(reset));
+
+initial begin
+    $monitor("counter = %b", counter);
+end
+
+
+endmodule

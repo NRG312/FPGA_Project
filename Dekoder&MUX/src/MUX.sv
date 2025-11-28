@@ -1,0 +1,15 @@
+module mux(input[1:0] S, input[3:0] D, output logic Y); //4 -> 1    input -> output
+
+always_comb begin
+    case(S)
+        2'b00: Y = D[0];
+        2'b01: Y = D[1];
+        2'b10: Y = D[2];
+        2'b11: Y = D[3];
+        //Przyklad bramki rowniania logicznego  & = AND, | = OR, ~ = NOT.         // jest to opis inaczej niz u gory
+        // Y = (~S1 & ~S0 & D0) | (~S1 & S0 & D1) | (S1 & ~S0 & D2) | (S1 & S0 & D3)
+    endcase
+end
+
+
+endmodule

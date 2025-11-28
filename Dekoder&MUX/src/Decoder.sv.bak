@@ -1,0 +1,21 @@
+module decoder(input[2:0] A,output logic[4:0] O);
+
+    always@(*) begin
+        
+        case(A)
+
+            O = 4'b0000;
+            2'b00: O[0] = 1;
+            2'b01: O[1] = 1;
+            2'b10: O[2] = 1;
+            2'b11: O[3] = 1;
+            //Przyklad bramkowy rownania logicznego    & = AND, | = OR, ~ = NOT.        //jest to samo co na gorze tylko inaczej opisane
+            //Y0 = !A1 & !A0
+            //Y1 = !A1 & A0
+            //itd
+        endcase
+    end 
+
+
+
+endmodule 

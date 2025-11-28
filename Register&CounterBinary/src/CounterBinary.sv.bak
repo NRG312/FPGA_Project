@@ -1,0 +1,10 @@
+module counterBinary(Output logic[3:0] counter, Input clk, Input reset);
+
+always @(posedge clk or posedge reset) begin
+
+    counter <= counter + 1;
+
+end
+
+
+endmodule

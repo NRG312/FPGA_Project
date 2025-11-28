@@ -1,0 +1,29 @@
+module testbench;
+
+//decoder var
+reg[2:0] A = 2'b00;
+wire[4:0] Y = 4'b0000;
+
+//MUX var
+reg[2:0] S = 2'b00;
+reg[4:0] D = 4'b0000;
+wire Y = 0;
+
+decoder dec(.A(A),.Y(Y));
+MUX mux(.S(S),.D(D),.Y(Y));
+
+initial begin
+
+    $monitor("Y = %b", Y);
+    A = 2'b10;
+
+    #500 $finish
+
+end
+
+initial begin
+
+
+end
+
+endmodule

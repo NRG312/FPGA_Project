@@ -1,0 +1,14 @@
+module Register(input[7:0] D, output logic[7:0] Q, input clk, input reset);
+
+
+    always @(posedge clk or posedge reset) begin
+        
+        if (reset) begin
+            Q <= 0;
+        end else begin
+            Q <= D;
+        end
+    end
+
+
+endmodule

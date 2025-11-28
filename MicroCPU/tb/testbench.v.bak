@@ -1,0 +1,24 @@
+module Testbench();
+    //RAM
+    reg[2:0] addr;
+    reg[3:0] data_in;
+    reg clk;
+    reg write_enable;
+    wire[3:0] data_out;
+
+    Ram RAM(.addr(addr),.data_in(data_in),.clk(clk),.write_enable(write_enable),.data_out(data_out));
+    always #10 clk = ~clk;
+
+    initial begin
+        write_enable = 1;
+        addr = 2'b00;
+        data_in = 4'b0010;
+    end
+
+    initial begin
+        write_enable = 0;
+        $monitor("data_out = %b", data_out);
+        addr = 2'b00;
+    end
+
+endmodule

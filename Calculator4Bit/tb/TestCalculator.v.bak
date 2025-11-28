@@ -1,0 +1,24 @@
+module testbench;
+
+reg[3:0] A;
+reg[3:0] B;
+reg cin;
+wire[3:0] sum;
+wire cout;
+
+Calculator alu(.A(A),.B(B),.cin(cin),.sum(sum),.cout(cout));
+
+initial begin
+    
+    $monitor("A = %b B = %b | sum = %b" ,A,B,sum);
+    $monitor("A = %d" ,A);
+    $monitor("A = %h" ,A);
+
+    //wektory testowe
+    #0 A = 4'b0110; B = 4'b1010; cin = 0;
+    #10 A = 4'b1111; B = 4'b1110; cin = 0;
+    #10 A = 4'b0101; B = 4'b0001; cin = 1;
+    #10 $finish
+end
+    
+endmodule
